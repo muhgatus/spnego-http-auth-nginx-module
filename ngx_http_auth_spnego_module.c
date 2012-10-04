@@ -105,28 +105,28 @@ static ngx_command_t ngx_http_auth_spnego_commands[] = {
        void *post; }
   */
 
-  { ngx_string("auth_gss"),
+  { ngx_string("auth_spnego"),
     NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_HTTP_LOC_CONF|NGX_CONF_FLAG,
     ngx_conf_set_flag_slot,
     NGX_HTTP_LOC_CONF_OFFSET,
     offsetof(ngx_http_auth_spnego_loc_conf_t, protect),
     NULL },
 
-  { ngx_string("auth_gss_realm"),
+  { ngx_string("auth_spnego_realm"),
     NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_HTTP_LOC_CONF|NGX_CONF_TAKE1,
     ngx_conf_set_str_slot,
     NGX_HTTP_LOC_CONF_OFFSET,
     offsetof(ngx_http_auth_spnego_loc_conf_t, realm),
     NULL },
 
-  { ngx_string("auth_gss_keytab"),
+  { ngx_string("auth_spnego_keytab"),
     NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_HTTP_LOC_CONF|NGX_CONF_TAKE1,
     ngx_conf_set_str_slot,
     NGX_HTTP_LOC_CONF_OFFSET,
     offsetof(ngx_http_auth_spnego_loc_conf_t, keytab),
     NULL },
 
-  { ngx_string("auth_gss_service_name"),
+  { ngx_string("auth_spnego_service_name"),
     /* TODO change to NGX_CONF_1MORE for "http", "khttp", besides "HTTP" */
     NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_HTTP_LOC_CONF|NGX_CONF_TAKE1,
     ngx_conf_set_str_slot,
@@ -134,7 +134,7 @@ static ngx_command_t ngx_http_auth_spnego_commands[] = {
     offsetof(ngx_http_auth_spnego_loc_conf_t, srvcname),
     NULL },
 
-  { ngx_string("auth_gss_format_full"),
+  { ngx_string("auth_spnego_format_full"),
     NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_HTTP_LOC_CONF|NGX_CONF_FLAG,
     ngx_conf_set_flag_slot,
     NGX_HTTP_LOC_CONF_OFFSET,
